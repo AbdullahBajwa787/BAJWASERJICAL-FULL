@@ -1,0 +1,15 @@
+{
+  "visitors": {
+    "total": 0,
+    "today": 0,
+    "todayDate": "",
+    "daily": {}
+  },
+  "sales": [],
+  "nextSaleId": 1,
+  "productViews": {},
+  "pageViews": {
+    "total": 0,
+    "pages": {}
+  }
+}

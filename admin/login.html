@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BAJWA SERJICAL — Admin Login</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  min-height: 100vh; display: grid; place-items: center; padding: 20px;
+  background:
+    radial-gradient(900px 520px at 82% -10%, rgba(46,201,141,.18), transparent 60%),
+    radial-gradient(760px 460px at -8% 112%, rgba(201,160,74,.14), transparent 60%),
+    linear-gradient(160deg, #061009, #030705);
+  color: #eaf4ef;
+}
+.login-card {
+  position: relative; z-index: 1; width: min(400px, 100%);
+  border-radius: 24px; padding: 40px 34px 30px;
+  background: linear-gradient(170deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow: 0 40px 90px rgba(0,0,0,.65);
+  animation: up .5s cubic-bezier(.2,.9,.3,1.15) both;
+}
+.login-card::before {
+  content: ""; position: absolute; top: 0; left: 24px; right: 24px; height: 1px;
+  background: linear-gradient(90deg, transparent, #e9c77e, transparent); opacity: .75;
+}
+@keyframes up { from { opacity: 0; transform: translateY(20px) scale(.98); } }
+.brandline { display: flex; align-items: center; justify-content: center; gap: 13px; margin-bottom: 8px; }
+.logo {
+  width: 52px; height: 52px; border-radius: 15px; object-fit: contain; padding: 4px;
+  background: linear-gradient(150deg, #fff, #e7efe9);
+  box-shadow: 0 0 0 1px rgba(233,199,126,.5), 0 10px 24px rgba(0,0,0,.45);
+}
+.brandline strong { display: block; font-family: 'Fraunces', Georgia, serif; font-size: 18px; font-weight: 600; letter-spacing: .05em; color: #fdf9ef; line-height: 1.15; }
+.brandline small { display: block; font-size: 8.5px; color: #e9c77e; font-weight: 800; letter-spacing: .24em; text-transform: uppercase; margin-top: 4px; }
+h1 { text-align: center; font-size: 12px; color: #7c9288; font-weight: 600; letter-spacing: .05em; margin: 14px 0 26px; }
+label { display: block; font-size: 9.5px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: #7c9288; margin-bottom: 7px; }
+input {
+  width: 100%; padding: 13px 15px; border: 1px solid rgba(255,255,255,.12); border-radius: 13px;
+  font-size: 13px; outline: none; color: #eaf4ef; background: rgba(255,255,255,.04);
+  transition: border-color .18s, box-shadow .18s, background .18s; margin-bottom: 18px;
+}
+input::placeholder { color: #5f746a; }
+input:focus { border-color: #2ec98d; background: rgba(255,255,255,.07); box-shadow: 0 0 0 3px rgba(46,201,141,.15); }
+button {
+  width: 100%; border: 0; border-radius: 999px; padding: 14px; font-size: 13.5px; font-weight: 800; letter-spacing: .04em;
+  background: linear-gradient(140deg, #f4e0b3, #e9c77e 45%, #c9a04a); color: #08281b; cursor: pointer;
+  box-shadow: 0 14px 30px rgba(233,199,126,.24), inset 0 1px 0 rgba(255,255,255,.6);
+  transition: transform .18s, box-shadow .22s; margin-top: 4px;
+}
+button:hover { transform: translateY(-2px); box-shadow: 0 20px 38px rgba(233,199,126,.36), inset 0 1px 0 rgba(255,255,255,.6); }
+button:active { transform: translateY(0) scale(.98); }
+button:disabled { opacity: .7; cursor: wait; transform: none; }
+.err { display: none; background: rgba(255,107,99,.13); border: 1px solid rgba(255,107,99,.36); color: #ff9d92; font-size: 12.5px; font-weight: 600; padding: 11px 14px; border-radius: 12px; margin-bottom: 16px; }
+.err.show { display: block; animation: up .25s ease both; }
+.foot { margin-top: 22px; text-align: center; }
+.foot a { color: #7c9288; font-size: 12px; text-decoration: none; font-weight: 600; letter-spacing: .02em; transition: color .18s; }
+.foot a:hover { color: #e9c77e; }
+</style>
+</head>
+<body>
+<div class="login-card">
+  <div class="brandline">
+    <img src="/images/logo.jpg" alt="" class="logo" onerror="this.style.display='none'">
+    <div><strong>BAJWA SERJICAL</strong><small>Admin Console</small></div>
+  </div>
+  <h1>Sign in to manage your store</h1>
+  <div class="err" id="err"></div>
+  <form id="loginForm" novalidate>
+    <label for="user">Username</label>
+    <input type="text" id="user" autocomplete="username" placeholder="Enter username">
+    <label for="pass">Password</label>
+    <input type="password" id="pass" autocomplete="current-password" placeholder="Enter password">
+    <button type="submit" id="submitBtn">Sign In</button>
+  </form>
+  <div class="foot"><a href="http://127.0.0.1:3000">← Back to store</a></div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var form = document.getElementById('loginForm');
+  var errEl = document.getElementById('err');
+  var submitBtn = document.getElementById('submitBtn');
+  var user = document.getElementById('user');
+  var pass = document.getElementById('pass');
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    errEl.classList.remove('show');
+    var username = user.value.trim();
+    var password = pass.value;
+    if (!username || !password) {
+      errEl.textContent = 'Enter username and password';
+      errEl.classList.add('show');
+      return;
+    }
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Signing in…';
+    try {
+      var res = await fetch('http://127.0.0.1:3000/api/admin/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username: username, password: password }),
+      });
+      var data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Login failed');
+      location.href = 'http://127.0.0.1:3000/admin';
+    } catch (err) {
+      errEl.textContent = err.message || 'Cannot reach server';
+      errEl.classList.add('show');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Sign In';
+    }
+    setTimeout(function () { submitBtn.disabled = false; submitBtn.textContent = 'Sign In'; }, 3000);
+  });
+})();
+</script>
+</body>
+</html>

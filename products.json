@@ -1,0 +1,404 @@
+{
+  "storeName": "BAJWA SERJICAL",
+  "currency": "₨",
+  "categories": [
+    "CGM",
+    "Blood Glucose Monitor",
+    "Uric Acid Test Meter",
+    "Pulse Oximeter",
+    "Thermometer",
+    "Fetal Doppler",
+    "CPAP Machine",
+    "BP Monitor",
+    "Weight Machine",
+    "Test Strips",
+    "Urine Bags",
+    "Massager",
+    "Beauty & Facial",
+    "ECG Accessories",
+    "Patient Furniture",
+    "Stethoscope",
+    "Walking Aids",
+    "Respiratory",
+    "Surgical Instruments"
+  ],
+  "products": [
+    {
+      "id": 4,
+      "name": "Sinocare UG Uric Acid & Glucose Monitor",
+      "category": "Uric Acid Test Meter",
+      "price": 4999,
+      "priceMax": 5699,
+      "regularPrice": null,
+      "rating": 5,
+      "badge": null,
+      "image": "images/prod-uric-acid.webp",
+      "desc": "2-in-1 dual meter that measures both Uric Acid and Blood Glucose with one compact device. Fast results with 25 test memories.",
+      "tags": [
+        "best",
+        "bestseller"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "10 IN 1 / 11 IN 1 Hydra Facial Machine",
+      "category": "Beauty & Facial",
+      "price": 210000,
+      "priceMax": null,
+      "regularPrice": 220000,
+      "rating": 5,
+      "badge": "Sale!",
+      "image": "images/prod-hydra.jpg",
+      "desc": "Professional multi-function hydra facial machine with peeling, ultrasound, RF, vacuum and LED therapy modes for spa and clinic use.",
+      "tags": [
+        "recent"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Yuwell YX-306 Pulse Oximeter",
+      "category": "Pulse Oximeter",
+      "price": 3999,
+      "priceMax": null,
+      "regularPrice": 4500,
+      "rating": 4.5,
+      "badge": "-11%",
+      "image": "images/prod-yx306.png",
+      "desc": "Accurate fingertip pulse oximeter with OLED display, SpO2 and pulse rate measurement, auto power-off and low-battery indicator.",
+      "tags": [
+        "latest"
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Yuwell YX-102 Fingertip Pulse Oximeter",
+      "category": "Pulse Oximeter",
+      "price": 3899,
+      "priceMax": null,
+      "regularPrice": 4000,
+      "rating": 4.5,
+      "badge": "-3%",
+      "image": "images/prod-yx102.webp",
+      "desc": "Compact fingertip pulse oximeter with large display and one-button operation. Ideal for sports, aviation and home use.",
+      "tags": [
+        "latest"
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Yuwell YU-610 Overbed Table",
+      "category": "Patient Furniture",
+      "price": 15500,
+      "priceMax": null,
+      "regularPrice": 17000,
+      "rating": 5,
+      "badge": "-9%",
+      "image": "images/prod-yu610.jpg",
+      "desc": "Adjustable overbed table for hospital and home use. Height-adjustable with smooth castors and durable tabletop.",
+      "tags": [
+        "latest"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Yuwell YTX-203 Fetal Doppler",
+      "category": "Fetal Doppler",
+      "price": 7799,
+      "priceMax": null,
+      "regularPrice": 8500,
+      "rating": 5,
+      "badge": "-8%",
+      "image": "images/prod-ytx203.jpg",
+      "desc": "Portable fetal doppler to hear your baby's heartbeat at home. Includes gel, earphones and LCD display of fetal heart rate.",
+      "tags": [
+        "latest"
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Yuwell YT-2C Digital Infrared Thermometer",
+      "category": "Thermometer",
+      "price": 3899,
+      "priceMax": null,
+      "regularPrice": 4500,
+      "rating": 4.5,
+      "badge": "-13%",
+      "image": "images/prod-yt2c.webp",
+      "desc": "Non-contact infrared thermometer with instant, accurate reading. Suitable for forehead, ear and object temperature.",
+      "tags": [
+        "latest"
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Yuwell YT-1C Forehead Thermometer",
+      "category": "Thermometer",
+      "price": 3899,
+      "priceMax": null,
+      "regularPrice": 4500,
+      "rating": 4.5,
+      "badge": "-13%",
+      "image": "images/prod-yt1c.webp",
+      "desc": "Infrared forehead thermometer with fever alarm, large backlit display and memory function for home care.",
+      "tags": [
+        "latest"
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Yuwell YP-01 Nasal Pillows Mask",
+      "category": "Respiratory",
+      "price": 15499,
+      "priceMax": null,
+      "regularPrice": 16000,
+      "rating": 4,
+      "badge": "-3%",
+      "image": "images/prod-yp01.jpg",
+      "desc": "Comfortable nasal pillows CPAP mask with soft silicone cushions and adjustable headgear for a leak-free sleep.",
+      "tags": [
+        "latest"
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Yuwell YH-550 Auto CPAP Machine",
+      "category": "CPAP Machine",
+      "price": 72999,
+      "priceMax": null,
+      "regularPrice": 80000,
+      "rating": 5,
+      "badge": "-9%",
+      "image": "images/prod-yh550.webp",
+      "desc": "Auto-CPAP machine with smart pressure algorithm, humidifier, quiet operation and full data tracking for sleep apnea therapy.",
+      "tags": [
+        "latest"
+      ]
+    },
+    {
+      "id": 17,
+      "name": "Certeza PS-812 Digital Plastic Weight Machine Scale",
+      "category": "Weight Machine",
+      "price": 3499,
+      "priceMax": null,
+      "regularPrice": 3600,
+      "rating": 5,
+      "badge": "Sale!",
+      "image": "images/prod-certeza-ps812.jpg",
+      "desc": "Digital plastic body weight scale with precise sensors, large LCD and automatic on/off. Weighs up to 180kg.",
+      "tags": [
+        "bestseller"
+      ]
+    },
+    {
+      "id": 18,
+      "name": "Certeza GL-110 Test Strips",
+      "category": "Test Strips",
+      "price": 1535,
+      "priceMax": null,
+      "regularPrice": 1775,
+      "rating": 5,
+      "badge": "-13%",
+      "image": "images/prod-certeza-gl110-strips.jpg",
+      "desc": "High-accuracy blood glucose test strips for Certeza GL-110 meter. Need only 0.5µl sample with fast 5-second results.",
+      "tags": [
+        "bestseller"
+      ]
+    },
+    {
+      "id": 19,
+      "name": "Certeza BM 450 Digital Blood Pressure Monitor",
+      "category": "BP Monitor",
+      "price": 2199,
+      "priceMax": null,
+      "regularPrice": null,
+      "rating": 4.5,
+      "badge": "Sale!",
+      "image": "images/prod-certeza-bm450.jpg",
+      "desc": "Automatic upper-arm blood pressure monitor with WHO indicator, irregular heartbeat detection and large LCD.",
+      "tags": [
+        "bestseller"
+      ]
+    },
+    {
+      "id": 20,
+      "name": "Sinocare Test Strips for UG Uric Acid – 25 pcs",
+      "category": "Test Strips",
+      "price": 2499,
+      "priceMax": null,
+      "regularPrice": 3000,
+      "rating": 5,
+      "badge": "-17%",
+      "image": "images/prod-uric-strips.webp",
+      "desc": "Uric acid test strips for Sinocare UG meter. Pack of 25 strips for accurate at-home uric acid monitoring.",
+      "tags": [
+        "bestseller"
+      ]
+    },
+    {
+      "id": 21,
+      "name": "Certeza GL-110 Blood Glucose Monitor",
+      "category": "Blood Glucose Monitor",
+      "price": 1235,
+      "priceMax": null,
+      "regularPrice": 1599,
+      "rating": 5,
+      "badge": "-23%",
+      "image": "images/prod-certeza-gl110.jpg",
+      "desc": "Blood glucose monitoring system with strips, lancing device and battery. Fast, accurate and easy to use.",
+      "tags": [
+        "bestseller"
+      ]
+    },
+    {
+      "id": 22,
+      "name": "Medico ST-11 Classic Cardio Stethoscope",
+      "category": "Stethoscope",
+      "price": 4500,
+      "priceMax": null,
+      "regularPrice": null,
+      "rating": 5,
+      "badge": null,
+      "image": "images/banner-stethoscope.jpg",
+      "desc": "Classic dual-head cardiology stethoscope with super acoustic chest piece for clear heart and lung sounds.",
+      "tags": [
+        "bestseller"
+      ]
+    },
+    {
+      "id": 23,
+      "name": "Portable Folding Walking Stick with Seat",
+      "category": "Walking Aids",
+      "price": 3500,
+      "priceMax": null,
+      "regularPrice": null,
+      "rating": 4.5,
+      "badge": null,
+      "image": "images/banner-walking-stick.webp",
+      "desc": "Multi-purpose folding walking stick that converts into a seat. Sturdy aluminium construction with padded seat.",
+      "tags": [
+        "latest",
+        "recent"
+      ]
+    },
+    {
+      "id": 24,
+      "name": "Premium Surgical Instrument Set - Basic Dissection Kit",
+      "category": "Surgical Instruments",
+      "price": 9500,
+      "priceMax": null,
+      "regularPrice": null,
+      "rating": 5,
+      "badge": null,
+      "image": "images/instruments/set.svg",
+      "desc": "Complete basic dissection set with cutting, holding and grasping instruments. Stainless steel, autoclavable, ideal for clinics and students.",
+      "tags": [
+        "surgical"
+      ]
+    },
+    {
+      "id": 25,
+      "name": "Mayo-Hegar Needle Holder Forceps",
+      "category": "Surgical Instruments",
+      "price": 3200,
+      "priceMax": null,
+      "regularPrice": 3800,
+      "rating": 4.5,
+      "badge": "-16%",
+      "image": "images/instruments/forceps.svg",
+      "desc": "Heavy-duty needle holder for suturing with a firm locking grip. German surgical stainless steel with ergonomic rings.",
+      "tags": [
+        "surgical"
+      ]
+    },
+    {
+      "id": 26,
+      "name": "Surgical Scalpel Handle No. 3 with Blades",
+      "category": "Surgical Instruments",
+      "price": 1800,
+      "priceMax": null,
+      "regularPrice": null,
+      "rating": 4.5,
+      "badge": null,
+      "image": "images/instruments/scalpel.svg",
+      "desc": "Standard pattern scalpel handle No. 3 with 10 sterile surgical blades for precise incisions.",
+      "tags": [
+        "surgical"
+      ]
+    },
+    {
+      "id": 27,
+      "name": "Operating Scissors Set - Straight & Curved",
+      "category": "Surgical Instruments",
+      "price": 2500,
+      "priceMax": null,
+      "regularPrice": null,
+      "rating": 5,
+      "badge": null,
+      "image": "images/instruments/scissors.svg",
+      "desc": "Fine operating scissors in straight and curved patterns for delicate dissection. Stainless steel with serrated edges.",
+      "tags": [
+        "surgical"
+      ]
+    },
+    {
+      "id": 28,
+      "name": "Double-End Retractor Set",
+      "category": "Surgical Instruments",
+      "price": 4200,
+      "priceMax": null,
+      "regularPrice": 5000,
+      "rating": 4,
+      "badge": "-16%",
+      "image": "images/instruments/retractor.svg",
+      "desc": "Double-ended retractors for soft-tissue exposure during minor surgical procedures.",
+      "tags": [
+        "surgical"
+      ]
+    },
+    {
+      "id": 29,
+      "name": "Diagnostic Otoscope Set",
+      "category": "Surgical Instruments",
+      "price": 4500,
+      "priceMax": null,
+      "regularPrice": null,
+      "rating": 4.5,
+      "badge": null,
+      "image": "images/cat-otoscope.jpeg",
+      "desc": "Professional diagnostic otoscope with halogen illumination and specula set for ear examination.",
+      "tags": [
+        "surgical"
+      ]
+    },
+    {
+      "id": 30,
+      "name": "Binocular Diagnostic Ophthalmoscope Set",
+      "category": "Surgical Instruments",
+      "price": 8500,
+      "priceMax": null,
+      "regularPrice": 9500,
+      "rating": 5,
+      "badge": "-11%",
+      "image": "images/cat-ophthalmoscope.jpeg",
+      "desc": "Direct ophthalmoscope with multiple apertures and lenses for complete eye examinations.",
+      "tags": [
+        "surgical"
+      ]
+    },
+    {
+      "id": 31,
+      "name": "Certeza Plus Blood Glucose Monitor",
+      "category": "Blood Glucose Monitor",
+      "price": 1500,
+      "priceMax": null,
+      "regularPrice": null,
+      "rating": 4.5,
+      "badge": null,
+      "image": "images/banner-glucose.jpg",
+      "desc": "Compact blood glucose monitoring system with fast, accurate readings. Ideal for daily home use.",
+      "tags": [
+        "bestseller"
+      ]
+    }
+  ]
+}

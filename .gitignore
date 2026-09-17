@@ -1,0 +1,8 @@
+# Sensitive — commit kabhi nahi karna
+.env
+
+# Temp / OS files
+Thumbs.db
+.DS_Store
+*.log
+*.tmp

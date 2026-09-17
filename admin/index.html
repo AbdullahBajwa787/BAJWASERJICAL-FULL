@@ -1,0 +1,231 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BAJWA SERJICAL â€” Admin Panel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/admin/admin.css">
+</head>
+<body>
+
+<div class="app">
+  <aside class="side">
+    <div class="brand">
+      <span class="brand-frame"><img src="/images/logo.jpg" alt="BAJWA SERJICAL" class="brand-logo"></span>
+      <div class="brand-text"><strong>BAJWA SERJICAL</strong><small>Admin Console</small></div>
+    </div>
+    <div class="nav-label">Menu</div>
+    <nav class="side-nav">
+      <button class="nav-item active" data-view="products"><span class="nav-ico"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v6H4zM4 14h16v6H4z"/><path d="M4 8.5 8 8"/></svg></span>Products</button>
+      <button class="nav-item" data-view="analytics"><span class="nav-ico"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></span>Sales &amp; Analytics</button>
+      <a class="nav-item" href="http://127.0.0.1:3000" target="_blank" rel="noopener"><span class="nav-ico"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12s3.5-7 9-7 9 7 9 7-3.5 7-9 7-9-7-9-7z"/><circle cx="12" cy="12" r="3"/></svg></span>View Store</a>
+    </nav>
+    <div class="side-foot">
+      <div class="status-card">
+        <div class="api-status"><span class="pulse" id="apiPulse"></span><span id="apiStatus">Connectingâ€¦</span></div>
+        <small>Port 3000 Â· products.json</small>
+      </div>
+      <div class="gemini-field">
+        <label for="geminiKey">Gemini API Key <em>(optional)</em></label>
+        <input type="password" id="geminiKey" placeholder="AIzaâ€¦">
+      </div>
+      <button id="logoutBtn" class="logout-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/></svg>
+        Logout
+      </button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div id="productsView">
+    <header class="topbar">
+      <div class="topbar-title">
+        <span class="kicker">Catalogue</span>
+        <h1>Products</h1>
+        <p id="subtitle">Manage your catalogue</p>
+      </div>
+      <div class="topbar-actions">
+        <button class="btn ghost" id="refreshBtn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 11A8 8 0 0 0 6.3 6.3L4 8.6M4 4v4.6h4.6"/><path d="M4 13a8 8 0 0 0 13.7 4.7L20 15.4M20 20v-4.6h-4.6"/></svg>Refresh</button>
+        <button class="btn primary" id="addBtn"><span class="plus">+</span> Add Product</button>
+      </div>
+    </header>
+
+    <section class="stats" id="stats"></section>
+
+    <section class="panel">
+      <div class="toolbar">
+        <div class="search-box">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input id="search" type="search" placeholder="Search productsâ€¦">
+        </div>
+        <select id="filterCat"><option value="">All categories</option></select>
+        <select id="filterTag"><option value="">All sections</option><option value="best">Best picks</option><option value="bestseller">Bestsellers</option><option value="latest">Latest</option><option value="recent">Recently viewed</option><option value="surgical">Surgical instruments</option></select>
+        <span class="result-count" id="resultCount"></span>
+      </div>
+      <div class="table-wrap">
+        <table class="prod-table">
+          <thead>
+            <tr><th>Product</th><th>Category</th><th>Price</th><th>Old</th><th>Off</th><th>Rating</th><th>Sections</th><th class="ta-r">Actions</th></tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+        <div class="empty" id="empty" hidden>No products match your filter.</div>
+      </div>
+    </section>
+    </div>
+
+    <!-- Analytics View -->
+    <div id="analyticsView" hidden>
+      <header class="topbar">
+      <div class="topbar-title">
+        <span class="kicker">Performance</span>
+        <h1>Sales &amp; Analytics</h1>
+        <p id="analyticsSubtitle">Overview of your store performance</p>
+      </div>
+      <div class="topbar-actions">
+        <button class="btn ghost" id="refreshAnalytics"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 11A8 8 0 0 0 6.3 6.3L4 8.6M4 4v4.6h4.6"/><path d="M4 13a8 8 0 0 0 13.7 4.7L20 15.4M20 20v-4.6h-4.6"/></svg>Refresh</button>
+        <button class="btn primary" id="addSaleBtn"><span class="plus">+</span> Record Sale</button>
+      </div>
+    </header>
+    <section class="stats" id="analyticsStats"></section>
+
+    <!-- Product Views -->
+    <section class="panel">
+      <div class="toolbar">
+        <h3 class="panel-title">Most Viewed Products</h3>
+      </div>
+      <div class="table-wrap">
+        <table class="prod-table">
+          <thead><tr><th>ID</th><th>Product</th><th>Views</th><th>Recent Days</th></tr></thead>
+          <tbody id="productViewsBody"><tr><td colspan="4" class="empty">No product views yet</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Page Views -->
+    <section class="panel">
+      <div class="toolbar">
+        <h3 class="panel-title">Page Views</h3>
+      </div>
+      <div class="table-wrap">
+        <table class="prod-table">
+          <thead><tr><th>Page</th><th>Views</th></tr></thead>
+          <tbody id="pageViewsBody"><tr><td colspan="2" class="empty">No page views yet</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="toolbar">
+        <div class="search-box">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input id="saleSearch" type="search" placeholder="Search salesâ€¦">
+        </div>
+        <select id="saleFilter"><option value="">All time</option><option value="today">Today</option><option value="week">This week</option><option value="month">This month</option></select>
+        <span class="result-count" id="saleCount"></span>
+      </div>
+      <div class="table-wrap">
+        <table class="prod-table">
+          <thead>
+            <tr><th>ID</th><th>Product</th><th>Qty</th><th>Price</th><th>Customer</th><th>Phone</th><th>Date</th><th class="ta-r">Actions</th></tr>
+          </thead>
+          <tbody id="saleTbody"></tbody>
+        </table>
+        <div class="empty" id="saleEmpty" hidden>No sales recorded yet.</div>
+      </div>
+    </section>
+    </div>
+  </main>
+</div>
+
+<!-- Add / Edit Modal -->
+<div class="modal-overlay" id="modalOverlay" hidden>
+  <div class="modal" role="dialog" aria-modal="true">
+    <div class="modal-head">
+      <h2 id="modalTitle">Add Product</h2>
+      <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+    </div>
+    <form id="productForm" novalidate>
+      <input type="hidden" id="fId">
+      <div class="form-grid">
+        <label class="field span2"><span>Product name *</span><input type="text" id="fName" required placeholder="e.g. Certeza GL-110 Blood Glucose Monitor"></label>
+        <label class="field"><span>Category</span><input list="catList" id="fCategory" placeholder="Type or select"></label>
+        <label class="field"><span>Image</span>
+          <select id="fImageSel"></select>
+          <input type="text" id="fImage" placeholder="images/â€¦ or full URL">
+          <input type="file" id="fImageUpload" accept="image/*" hidden>
+          <button type="button" id="fImageUploadBtn" class="btn ghost btn-sm" style="margin-top:6px">â¬† Upload new image</button>
+        </label>
+        <label class="field"><span>Sale price (â‚¨) *</span><input type="number" id="fPrice" min="0" step="1" placeholder="1235"></label>
+        <label class="field"><span>Max price (range)</span><input type="number" id="fPriceMax" min="0" step="1" placeholder="Optional"></label>
+        <label class="field"><span>Regular price (â‚¨)</span><input type="number" id="fRegular" min="0" step="1" placeholder="Optional, strikethrough"></label>
+        <label class="field"><span>Rating (0â€“5)</span><select id="fRating"><option value="">â€”</option><option>5</option><option>4.5</option><option>4</option><option>3.5</option><option>3</option><option>2.5</option><option>2</option></select></label>
+        <label class="field"><span>Badge (e.g. -13%, Sale!)</span><input type="text" id="fBadge" placeholder="Optional"></label>
+        <label class="field span2"><span>Description</span><textarea id="fDesc" rows="3" placeholder="Short product descriptionâ€¦"></textarea>
+          <button type="button" id="aiDescBtn" class="btn ghost btn-sm" style="margin-top:6px">âœ¨ Generate with AI (Gemini)</button>
+        </label>
+      </div>
+      <div class="field"><span>Sections</span>
+        <div class="chips">
+          <label class="chip"><input type="checkbox" value="best"><span>Best picks</span></label>
+          <label class="chip"><input type="checkbox" value="bestseller"><span>Bestsellers</span></label>
+          <label class="chip"><input type="checkbox" value="latest"><span>Latest</span></label>
+          <label class="chip"><input type="checkbox" value="recent"><span>Recently viewed</span></label>
+          <label class="chip"><input type="checkbox" value="surgical"><span>Surgical instruments</span></label>
+        </div>
+      </div>
+      <div class="modal-foot">
+        <button type="button" class="btn ghost" id="cancelBtn">Cancel</button>
+        <button type="submit" class="btn primary" id="saveBtn">Save Product</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Delete confirm -->
+<div class="modal-overlay" id="delOverlay" hidden>
+  <div class="modal modal-sm">
+    <div class="modal-head"><h2>Delete product?</h2></div>
+    <p class="del-text" id="delText"></p>
+    <div class="modal-foot">
+      <button class="btn ghost" id="delCancel">Cancel</button>
+      <button class="btn danger" id="delConfirm">Delete</button>
+    </div>
+  </div>
+</div>
+
+<!-- Record Sale Modal -->
+<div class="modal-overlay" id="saleModalOverlay" hidden>
+  <div class="modal" role="dialog" aria-modal="true">
+    <div class="modal-head">
+      <h2>Record Sale</h2>
+      <button class="modal-close" id="saleModalClose" aria-label="Close">&times;</button>
+    </div>
+    <form id="saleForm" novalidate>
+      <div class="form-grid">
+        <label class="field span2"><span>Product name *</span><input type="text" id="saleProductName" required placeholder="e.g. Sinocare iCan i3 CGM" list="productList"></label>
+        <label class="field"><span>Quantity</span><input type="number" id="saleQty" min="1" value="1"></label>
+        <label class="field"><span>Unit price (â‚¨)</span><input type="number" id="salePrice" min="0" placeholder="Sale price"></label>
+        <label class="field"><span>Customer name</span><input type="text" id="saleCustomer" placeholder="Optional"></label>
+        <label class="field"><span>Phone</span><input type="text" id="salePhone" placeholder="Optional"></label>
+        <label class="field"><span>Date</span><input type="date" id="saleDate"></label>
+        <label class="field span2"><span>Notes</span><textarea id="saleNotes" rows="2" placeholder="Optional notesâ€¦"></textarea></label>
+      </div>
+      <div class="modal-foot">
+        <button type="button" class="btn ghost" id="saleCancelBtn">Cancel</button>
+        <button type="submit" class="btn primary">Save Sale</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<datalist id="catList"></datalist>
+<datalist id="productList"></datalist>
+<div class="toasts" id="toasts"></div>
+
+<script src="/admin/admin.js"></script>
+</body>
+</html>
