@@ -366,7 +366,8 @@
   /* Logout */
   const logoutBtn = $('#logoutBtn');
   if (logoutBtn) logoutBtn.addEventListener('click', () => {
-    location.href = API + '/api/admin/logout';
+    fetch(API + '/api/admin/logout', { method: 'GET', credentials: 'include' }).catch(() => {});
+    location.href = 'login.html';
   });
 
   /* ---------- Views ---------- */

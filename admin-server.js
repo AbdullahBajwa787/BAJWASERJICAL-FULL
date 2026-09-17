@@ -10,7 +10,7 @@ const DATA_FILE = path.join(ROOT, 'products.json');
 const ANALYTICS_FILE = path.join(ROOT, 'analytics.json');
 const ADMIN_DIR = path.join(ROOT, 'admin');
 const IMAGES_DIR = path.join(ROOT, 'images');
-const PORT = 3000;
+const PORT = Number(process.env.PORT) || 3000;
 
 /* Config — from environment or .env file */
 const ENV_FILE = path.join(ROOT, '.env');

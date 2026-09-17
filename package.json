@@ -1,0 +1,12 @@
+{
+  "name": "bajwa-surgical",
+  "version": "1.0.0",
+  "description": "Bajwa Surgical - Store & Admin Panel server",
+  "main": "admin-server.js",
+  "scripts": {
+    "start": "node admin-server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

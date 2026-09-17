@@ -1,15 +1,81 @@
 {
   "visitors": {
-    "total": 0,
-    "today": 0,
-    "todayDate": "",
-    "daily": {}
+    "total": 27,
+    "today": 18,
+    "todayDate": "2026-09-17",
+    "daily": {
+      "2026-09-16": 9,
+      "2026-09-17": 18
+    }
   },
-  "sales": [],
-  "nextSaleId": 1,
-  "productViews": {},
+  "sales": [
+    {
+      "id": 2,
+      "productId": 0,
+      "productName": "guloco",
+      "quantity": 1,
+      "price": 1200,
+      "customer": "",
+      "phone": "",
+      "notes": "",
+      "date": "2026-09-16T17:51:56.416Z"
+    },
+    {
+      "id": 3,
+      "productId": 0,
+      "productName": "guloco",
+      "quantity": 1,
+      "price": 1200,
+      "customer": "",
+      "phone": "",
+      "notes": "",
+      "date": "2026-09-16T17:56:47.832Z"
+    },
+    {
+      "id": 4,
+      "productId": 0,
+      "productName": "guloco",
+      "quantity": 1,
+      "price": 1200,
+      "customer": "",
+      "phone": "",
+      "notes": "",
+      "date": "2026-09-16T17:56:48.575Z"
+    },
+    {
+      "id": 5,
+      "productId": 37,
+      "productName": "Certeza GL-110 Blood Glucose Monitor",
+      "quantity": 1,
+      "price": 12750,
+      "customer": "Test Customer",
+      "phone": "0300-1234567",
+      "notes": "Test sale demo",
+      "date": "2026-09-17T10:26:34.942Z"
+    }
+  ],
+  "nextSaleId": 6,
+  "productViews": {
+    "4": {
+      "name": "Sinocare UG Uric Acid & Glucose Monitor",
+      "total": 2,
+      "daily": {
+        "2026-09-17": 2
+      }
+    },
+    "23": {
+      "name": "Portable Folding Walking Stick with Seat",
+      "total": 1,
+      "daily": {
+        "2026-09-17": 1
+      }
+    }
+  },
   "pageViews": {
-    "total": 0,
-    "pages": {}
+    "total": 17,
+    "pages": {
+      "/": 16,
+      "/C:/New%20folder/bajwa-surgical-project/hamza-surgical-copy/index.html": 1
+    }
   }
 }
