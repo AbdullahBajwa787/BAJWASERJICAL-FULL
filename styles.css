@@ -180,7 +180,7 @@ input { font-family: inherit; }
 /* ---------- Categories ---------- */
 .cat-carousel { padding: 38px 0 12px; }
 .carousel { overflow: hidden; position: relative; }
-.carousel-track { display: flex; gap: 24px; overflow-x: auto; padding: 12px 4px 20px; scroll-behavior: smooth; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.carousel-track { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; padding: 12px 4px 20px; scrollbar-width: none; }
 .carousel-track::-webkit-scrollbar { display: none; }
 .cat-thumb-item { flex: 0 0 120px; display: flex; flex-direction: column; align-items: center; gap: 11px; text-align: center; scroll-snap-align: start; }
 .thumb {
