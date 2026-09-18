@@ -1,9 +1,8 @@
 (function () {
   'use strict';
 
-  /* Admin Panel — smart URL: localhost locally, Vercel panel online */
-  var IS_LOCAL = location.hostname === '127.0.0.1' || location.hostname === 'localhost';
-  var ADMIN_PANEL_URL = IS_LOCAL ? 'http://127.0.0.1:3000/admin' : 'https://bajwa-surgical-admin-panel.vercel.app';
+  /* Admin Panel — always opens the live Vercel admin */
+  var ADMIN_PANEL_URL = 'https://bajwa-surgical-admin-panel.vercel.app';
   if (window.location.hash === '#adminpanal') {
     var admHmr = document.createElement('div');
     admHmr.id = 'adminPanelHost';
