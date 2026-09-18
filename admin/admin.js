@@ -10,7 +10,7 @@
   const $$ = (s) => Array.from(document.querySelectorAll(s));
 
   async function apiFetch(url, opts) {
-    const res = await apiFetch(url, opts);
+    const res = await fetch(url, opts);
     if (res.status === 401) {
       location.href = API + '/admin';
       throw new Error('Admin login required');
